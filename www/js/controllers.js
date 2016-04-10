@@ -107,8 +107,13 @@ angular.module('SimpleRESTIonic.controllers', [])
     .controller('DashboardCtrl', function (ItemsModel, $rootScope) {
         var vm = this;
 
+      // not needed
         function goToBackand() {
             window.location = 'http://docs.backand.com';
+        }
+
+        function returnHome(){
+          window.location = '#/tabs/dashboard';
         }
 
         function getAll() {
@@ -155,6 +160,13 @@ angular.module('SimpleRESTIonic.controllers', [])
             vm.isEditing = true;
         }
 
+        //testing viewing page
+
+        function setViewPost(object){
+          vm.object = object;
+          vm.isViewing = true;
+        }
+
         function isCurrent(id) {
             return vm.edited !== null && vm.edited.id === id;
         }
@@ -168,6 +180,12 @@ angular.module('SimpleRESTIonic.controllers', [])
             initCreateForm();
             vm.isCreating = false;
         }
+
+        //testing viewing page
+        vm.isViewing = false;
+        vm.setViewPost = setViewPost;
+        vm.returnHome = returnHome;
+
 
         vm.objects = [];
         vm.edited = null;

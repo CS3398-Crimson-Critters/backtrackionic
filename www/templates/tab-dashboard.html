@@ -1,27 +1,47 @@
 <ion-view view-title="Items">
-    <div ng-if="!vm.isCreating && !vm.isEditing">
-        <ion-content class="padding has-header">
+    <div ng-if="!vm.isCreating && !vm.isEditing &&!vm.isViewing">
+        <ion-content class="has-header">
             <!-- LIST -->
             <div class="bar bar-header">
-                <span><button class="button button-positive" ng-click="vm.goToBackand()">Need Help?</button></span>
-                <span ng-click="vm.isCreating = true"><i class='icon ion-plus-round new-item'> Add Item</i></span>
+                <span ng-click="vm.isCreating = true"><i class='icon ion-plus-round new-item balanced'></i></span>
             </div>
-            <div class="bar bar-subheader">
-                <div class="list card" ng-repeat="object in vm.data"
-                     ng-class="{'active':vm.isCurrent(object.id)}">
-                    <div class="item item-icon-right item-icon-left">
-                        <i class="ion-compose icon" ng-click="vm.setEdited(object)"></i>
 
-                        <h2 class="text-center">{{object.name}}</h2>
-                        <i class="icon ion-close-round" ng-click="vm.delete(object.id)"></i>
-                    </div>
-                    <div class="item item-body">
-                        {{object.description}}
-                    </div>
-                </div>
+            <div class="bar bar-subheader">
+                <ion-list>
+                  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="object in vm.data" type="item-text-wrap"
+                             ng-class="{'active':vm.isCurrent(object.id)}" ng-click="vm.setViewPost()">
+
+                    <img src="C:\Users\abiga\Documents\lyndaIonic\someApp\www\img\ben.png">
+                    <h2>{{object.name}}</h2>
+                    <p>{{object.description}}</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    <ion-option-button class="button-positive" ng-click="vm.setEdited(object)">
+                      Edit
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive" ng-click="vm.delete(object.id)">
+                      Delete
+                    </ion-option-button>
+                  </ion-item>
+                </ion-list>
             </div>
         </ion-content>
     </div>
+  <div ng-if="vm.isViewing">
+    <ion-content class="padding has-header">
+      <!-- EDITING -->
+      <div class="bar bar-header bar-secondary">
+        <h1 class="title">{{vm.object.name}}</h1>
+        <span><button class="button button-positive" ng-click="vm.returnHOme()">Go Back</button></span>
+      </div>
+      <div class="bar bar-subheader">
+
+
+      </div>
+    </ion-content>
+  </div>
+
+
     <div ng-if="vm.isCreating">
         <ion-content class="padding has-header">
             <!-- CREATING -->
@@ -51,6 +71,7 @@
             </div>
         </ion-content>
     </div>
+
     <div ng-if="vm.isEditing && !vm.isCreating">
         <ion-content class="padding has-header">
             <!-- EDITING -->
