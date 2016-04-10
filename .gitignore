@@ -3,4 +3,7 @@
 
 node_modules/
 platforms/
-plugins/
+# plugins/
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
