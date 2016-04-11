@@ -3,15 +3,18 @@
         <ion-content class="has-header">
             <!-- LIST -->
             <div class="bar bar-header">
+              <span><button ng-click="vm.showLost()">Lost</button><button ng-click="vm.showFound()">Found</button></span>
                 <span ng-click="vm.isCreating = true"><i class='icon ion-plus-round new-item balanced'></i></span>
             </div>
 
             <div class="bar bar-subheader">
                 <ion-list>
-                  <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="object in vm.data" type="item-text-wrap"
-                             ng-class="{'active':vm.isCurrent(object.id)}" ng-click="vm.setViewPost()">
+                  <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="object in vm.itemsToDisplay" type="item-text-wrap"
+                             ng-class="{'active':vm.isCurrent(object.id)}" ng-click="vm.setViewPost(object)">
 
-                    <img src="C:\Users\abiga\Documents\lyndaIonic\someApp\www\img\ben.png">
+
+
+                    <img src="/img/ionic.png">
                     <h2>{{object.name}}</h2>
                     <p>{{object.description}}</p>
                     <i class="icon ion-chevron-right icon-accessory"></i>
@@ -31,12 +34,13 @@
     <ion-content class="padding has-header">
       <!-- EDITING -->
       <div class="bar bar-header bar-secondary">
-        <h1 class="title">{{vm.object.name}}</h1>
-        <span><button class="button button-positive" ng-click="vm.returnHOme()">Go Back</button></span>
+        <h1 class="title"> Lost Item: {{vm.object.name}}</h1>
       </div>
+
       <div class="bar bar-subheader">
+        <p>{{vm.object.description}}</p>
 
-
+        <span class="button button-positive" ng-click="vm.cancelViewPost()">Go Back</span>
       </div>
     </ion-content>
   </div>
@@ -65,6 +69,12 @@
                                   ng-model="vm.newObject.description"
                                   placeholder="Enter description"></textarea>
                         </label>
+                        <br>
+                        <input ng-model="vm.newObject.type" type="radio" value="lost" name="type" id="type-lost" checked>
+                        <label for="type-lost">Lost Item</label>
+                        <br>
+                      <input ng-model="vm.newObject.type" type="radio" value="found" name="type" id="type-found" checked>
+                      <label for="type-found">Found Item</label>
                     </div>
                     <button class="button button-block button-positive" type="submit">Create</button>
                 </form>
