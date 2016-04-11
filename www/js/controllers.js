@@ -107,26 +107,37 @@ angular.module('SimpleRESTIonic.controllers', [])
     .controller('DashboardCtrl', function (ItemsModel, $rootScope) {
         var vm = this;
 
-      // not needed
-        function goToBackand() {
-            window.location = 'http://docs.backand.com';
-        }
-
-        function returnHome(){
-          window.location = '#/tabs/dashboard';
-        }
-
         function getAll() {
             ItemsModel.all()
                 .then(function (result) {
-                    vm.data = result.data.data;
+                    //vm.data = result.data.data;
+                    vm.lost = [];
+                    vm.found = [];
+                    var datalength = result.data.data.length;
+                    for(var i=0; i < datalength; i++){
+                      if(result.data.data[i].type == 'lost'){
+                        vm.lost.push(result.data.data[i]);
+                      }
+                      else{
+                        vm.found.push(result.data.data[i])
+                      }
+
+                    }
+                  vm.itemsToDisplay = vm.lost;
                 });
         }
 
         function clearData() {
-            vm.data = null;
+            vm.lost = null;
+            vm.found = null;
+            vm.itemsToDisplay = null;
         }
-
+        function showLost(){
+          vm.itemsToDisplay = vm.lost;
+        }
+        function showFound(){
+          vm.itemsToDisplay = vm.found;
+        }
         function create(object) {
             ItemsModel.create(object)
                 .then(function (result) {
@@ -163,8 +174,12 @@ angular.module('SimpleRESTIonic.controllers', [])
         //testing viewing page
 
         function setViewPost(object){
-          vm.object = object;
+          vm.object = angular.copy(object);
           vm.isViewing = true;
+        }
+        function cancelViewPost(){
+          vm.object = null;
+          vm.isViewing = false;
         }
 
         function isCurrent(id) {
@@ -183,12 +198,13 @@ angular.module('SimpleRESTIonic.controllers', [])
 
         //testing viewing page
         vm.isViewing = false;
+        vm.cancelViewPost = cancelViewPost;
         vm.setViewPost = setViewPost;
-        vm.returnHome = returnHome;
-
-
+        vm.showLost = showLost;
+        vm.showFound = showFound;
         vm.objects = [];
         vm.edited = null;
+        vm.object = null;
         vm.isEditing = false;
         vm.isCreating = false;
         vm.getAll = getAll;
@@ -199,7 +215,6 @@ angular.module('SimpleRESTIonic.controllers', [])
         vm.isCurrent = isCurrent;
         vm.cancelEditing = cancelEditing;
         vm.cancelCreate = cancelCreate;
-        vm.goToBackand = goToBackand;
         vm.isAuthorized = false;
 
         $rootScope.$on('authorized', function () {
