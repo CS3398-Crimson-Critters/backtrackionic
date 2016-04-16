@@ -19,7 +19,7 @@ angular.module('SimpleRESTIonic.controllers', [])
 
         function onLogin(username) {
             $rootScope.$broadcast('authorized');
-            $state.go('tab.dashboard');
+            $state.go('menu.dashboard');
             login.username = username || Backand.getUsername();
     }
 
@@ -48,13 +48,13 @@ angular.module('SimpleRESTIonic.controllers', [])
         onValidLogin = function(response){
             onLogin();
             login.username = response.data || login.username;
-        }
+        };
 
         onErrorInLogin = function(rejection){
             login.error = rejection.data;
             $rootScope.$broadcast('logout');
 
-        }
+        };
 
 
         login.username = '';
@@ -92,7 +92,7 @@ angular.module('SimpleRESTIonic.controllers', [])
 
         function onLogin() {
             $rootScope.$broadcast('authorized');
-            $state.go('tab.dashboard');
+            $state.go('menu.dashboard');
         }
 
 
