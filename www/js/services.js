@@ -14,7 +14,7 @@ angular.module('SimpleRESTIonic.services', [])
     .service('ItemsModel', function ($http, Backand) {
         var service = this,
             baseUrl = '/1/objects/',
-            objectName = 'items/';
+            objectName = 'Item/';
 
         function getUrl() {
             return Backand.getApiUrl() + baseUrl + objectName;
