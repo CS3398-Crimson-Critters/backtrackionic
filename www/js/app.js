@@ -44,6 +44,16 @@ angular.module('SimpleRESTIonic', ['ionic', 'backand', 'SimpleRESTIonic.controll
         }
       })
 
+      .state('menu.chats', {
+        url: '/chats',
+        views: {
+          'side-menu21': {
+            templateUrl: 'templates/chats.html',
+            controller: 'ChatsCtrl as vm'
+          }
+        }
+      })
+
       .state('menu.signup', {
         url: '/signup',
         views: {
