@@ -12,6 +12,20 @@
 	bottom: 13px;
 	color:#ef4e3a;
 }
+
+.pure-button {
+  background-color: #11c1f3;
+  color: #fff;
+}
+
+.lost-btn {
+  margin-left: 5pt;
+}
+
+.found-btn {
+  margin-left: 25pt;
+}
+
 [ng-click], [data-ng-click], [x-ng-click] {
     cursor: pointer;
 }
