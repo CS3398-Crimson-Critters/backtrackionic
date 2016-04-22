@@ -11,6 +11,9 @@
                 <ion-list>
                   <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="object in vm.itemsToDisplay" type="item-text-wrap"
                              ng-class="{'active':vm.isCurrent(object.id)}" ng-click="vm.setViewPost(object)">
+
+
+
                     <img src="/img/ionic.png">
                     <h2>{{object.name}}</h2>
                     <p>{{object.description}}</p>
@@ -27,7 +30,6 @@
             </div>
         </ion-content>
     </div>
-
   <div ng-if="vm.isViewing">
     <ion-content class="padding has-header">
       <!-- EDITING -->
@@ -39,7 +41,6 @@
         <p>{{vm.object.description}}</p>
 
         <span class="button button-positive" ng-click="vm.cancelViewPost()">Go Back</span>
-        <p class="button button-balanced" ng-click="vm.redirectToInbox()">Contact OP</p>
       </div>
     </ion-content>
   </div>
