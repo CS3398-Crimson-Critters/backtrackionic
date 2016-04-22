@@ -19,8 +19,12 @@
 }
 
 .hidden-menu {
-  background-color: #ef4e3a !important;
+  background-color: #90123f !important;
   color: #fff !important;
+}
+
+.bar.bar-stable .title{
+  color: #fff;
 }
 
 .lost-btn {
