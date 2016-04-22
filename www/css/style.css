@@ -18,6 +18,11 @@
   color: #fff;
 }
 
+.purple-menu {
+  background-color: #90123f;
+  color: #fff;
+}
+
 .hidden-menu {
   background-color: #90123f !important;
   color: #fff !important;
