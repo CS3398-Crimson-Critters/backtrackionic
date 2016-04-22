@@ -223,6 +223,12 @@ angular.module('SimpleRESTIonic.controllers', [])
             vm.isCreating = false;
         }
 
+        function redirectToInbox(){
+          alert('Go check your inbox, I dont work');
+        }
+        //testing send user to inbox
+        vm.redirectToInbox = redirectToInbox;
+
         //testing viewing page
         vm.isViewing = false;
         vm.cancelViewPost = cancelViewPost;
