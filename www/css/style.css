@@ -18,6 +18,11 @@
   color: #fff;
 }
 
+.hidden-menu {
+  background-color: #ef4e3a !important;
+  color: #fff !important;
+}
+
 .lost-btn {
   margin-left: 5pt;
 }
