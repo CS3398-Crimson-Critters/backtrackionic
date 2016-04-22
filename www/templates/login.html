@@ -1,9 +1,8 @@
 <ion-view view-title="Login">
     <ion-content class="padding has-header">
         <div class="bar bar-header">
-            <span ng-click="login.signout()" class="cancel-create"><i class="fa fa-sign-out" aria-hidden="true"></i>
-                sign out - login as {{login.username}}</span>
-            <button class="button button-calm" ng-click="login.anonymousLogin()">Guest login</button>
+            <button ng-click="login.signout()" class="pure-button signout-btn">sign out - login as {{login.username}}</button>
+            <button class="pure-button guest-btn" ng-click="login.anonymousLogin()">Guest login</button>
 
         </div>
         <div class="bar bar-subheader">

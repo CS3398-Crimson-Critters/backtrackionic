@@ -3,7 +3,7 @@
         <ion-content class="has-header">
             <!-- LIST -->
             <div class="bar bar-header">
-              <span><button ng-click="vm.showLost()">Lost</button><button ng-click="vm.showFound()">Found</button></span>
+              <span><button ng-click="vm.showLost()" class="pure-button lost-btn">Lost</button><button ng-click="vm.showFound()" class="pure-button found-btn">Found</button></span>
                 <span ng-click="vm.isCreating = true"><i class='icon ion-plus-round new-item balanced'></i></span>
             </div>
 
@@ -38,9 +38,9 @@
       </div>
 
       <div class="bar bar-subheader">
-        <p>{{vm.object.description}}</p>
-
-        <span class="button button-positive" ng-click="vm.cancelViewPost()">Go Back</span>
+        <p class="edit-description">{{vm.object.description}}</p>
+        <br>
+        <span class="button pure-button" ng-click="vm.cancelViewPost()">Go Back</span>
       </div>
     </ion-content>
   </div>
@@ -53,7 +53,7 @@
                 <h2 class="title">Create Item</h2>
                 <span ng-click="vm.cancelCreate()" class="cancel-create">Cancel</span>
             </div>
-            <div class="bar bar-subheader">
+            <div class="bar bar-subheader create-subheader">
                 <form class="create-form" role="form"
                       ng-submit="vm.create(vm.newObject)" novalidate>
                     <div class="list">
@@ -76,7 +76,7 @@
                         <input ng-model="vm.newObject.type" type="radio" value="found" name="type" id="type-found" checked>
                         <label for="type-found">Found Item</label>
                     </div>
-                    <button class="button button-block button-positive" type="submit">Create</button>
+                    <button class="button button-block pure-button" type="submit">Create</button>
                 </form>
             </div>
         </ion-content>

@@ -5,14 +5,30 @@
 	font-size: 20px;
 	bottom: 13px;
 }
+
 .cancel-create {
 	position: absolute;
 	right: 20px;
 	font-size: 14px;
 	bottom: 13px;
-	color:#ef4e3a;
+	color:#90123f;
 }
 
+.edit-description {
+  color: #666;
+}
+
+.pure-button.signout-btn {
+  position: absolute;
+  right: 5px;
+  background-color: #90123f;
+  color: #fff;
+}
+
+.guest-btn {
+  position: absolute;
+  left: 5px;
+}
 .pure-button {
   background-color: #11c1f3;
   color: #fff;
@@ -21,11 +37,23 @@
 .purple-menu {
   background-color: #90123f;
   color: #fff;
+  width: 110px;
 }
 
 .hidden-menu {
   background-color: #90123f !important;
   color: #fff !important;
+}
+.signup-header {
+  margin-left: auto;
+  margin-right: auto;
+}
+.signup-subheader, .create-subheader {
+  border: 0px;
+}
+
+p, h2, h1 {
+  color: #90123f;
 }
 
 .bar.bar-stable .title{
