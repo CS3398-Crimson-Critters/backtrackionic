@@ -1,0 +1,74 @@
+<ion-view view-title="Chats">
+
+  <!--This is the dummy data for the inbox feed-->
+  <div ng-if="!vm.isViewingChat">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="vm.setViewChat()">
+        <img ng-src="http://i.imgur.com/YOkeeOT.png">
+        <h2>Abigail Barron</h2>
+        <p>Where's my item at?</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="vm.setViewChat()">
+        <img ng-src="http://i.imgur.com/YOkeeOT.png">
+        <h2>Adriana Rios</h2>
+        <p>Give me more details on the item you "Lost"</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="vm.setViewChat()">
+        <img ng-src="http://i.imgur.com/YOkeeOT.png">
+        <h2>Kasie Kelldorf</h2>
+        <p>Yes, she is a small black kitten</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </div>
+
+  <!--This is the div that only shows if the user clicked on a message-->
+  <div ng-if="vm.isViewingChat">
+    <ion-view view-title="Abigail Barron">
+      <ion-content class="padding">
+        <p class="button button-balanced" ng-click="vm.cancelViewChat()"><span class="ion-arrow-left-b"></span></p>
+        <br>
+        <img ng-src="http://i.imgur.com/YOkeeOT.png" style="width: 64px; height: 64px">
+        <div id="messages" ng-repeat="message in vm.chatThread">
+          <p ng:class="{true:'right', false:'left'}[message.id % 2 == 0]"> {{message.message}}</p>
+        </div>
+        <label class="item item-input">
+          <input id="response" name="response" ng-model="vm.response" type="text" placeholder="Reply...">
+        </label>
+        <span class="button button-calm" ng-click="vm.sendReply()">Reply</span>
+
+      </ion-content>
+    </ion-view>
+  </div>
+
+
+</ion-view>
+
+<!--<style>-->
+  <!--.right, .left{-->
+    <!--border: 1px solid blue;-->
+    <!--padding: 3px;-->
+    <!--width: 80px;-->
+  <!--}-->
+  <!--.right{-->
+    <!--float: right;-->
+  <!--}-->
+<!--</style>-->

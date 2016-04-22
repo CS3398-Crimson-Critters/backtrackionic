@@ -104,6 +104,33 @@ angular.module('SimpleRESTIonic.controllers', [])
         vm.errorMessage = '';
     })
 
+    .controller('ChatsCtrl', function(ItemsModel, $rootScope){
+        var vm = this;
+
+        function setViewChat(){
+          vm.isViewingChat = true;
+        }
+        function cancelViewChat(){
+          vm.isViewingChat = false;
+        }
+        function sendReply(){
+          var myEl = angular.element( document.querySelector( '#messages' ) );
+          //myEl.append(vm.response);
+          //myEl.append('<br/>');
+          var m = {id: vm.chatThread.length, message: vm.response}
+          vm.chatThread.push(m);
+          vm.response = "";
+
+        }
+        vm.isViewingChat = false;
+        vm.cancelViewChat = cancelViewChat;
+        vm.setViewChat = setViewChat;
+
+        vm.chatThread = [{id: 1, message: "Where's my kitten?"}, {id: 2, message: "I found it outside Alkek"}]
+        vm.response ="";
+        vm.sendReply = sendReply;
+    })
+
     .controller('DashboardCtrl', function (ItemsModel, $rootScope) {
         var vm = this;
 
@@ -195,6 +222,12 @@ angular.module('SimpleRESTIonic.controllers', [])
             initCreateForm();
             vm.isCreating = false;
         }
+
+        function redirectToInbox(){
+          alert('Go check your inbox, I dont work');
+        }
+        //testing send user to inbox
+        vm.redirectToInbox = redirectToInbox;
 
         //testing viewing page
         vm.isViewing = false;
