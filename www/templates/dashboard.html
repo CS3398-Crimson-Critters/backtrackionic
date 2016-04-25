@@ -79,14 +79,15 @@
                         <br>
                         <input ng-model="vm.newObject.type" type="radio" value="found" name="type" id="type-found" checked>
                         <label for="type-found">Found Item</label>
-
-                    </div>
+                  <button class="button button-block pure-button" ng-click="addImage()">
+                    Add Image
+                  </button>
+                      </div>
                     <button class="button button-block pure-button" type="submit">Create</button>
                 </form>
             </div>
         </ion-content>
     </div>
-
     <div ng-if="vm.isEditing && !vm.isCreating">
         <ion-content class="padding has-header">
             <!-- EDITING -->
