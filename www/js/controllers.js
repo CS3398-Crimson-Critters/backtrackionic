@@ -230,6 +230,7 @@ angular.module('SimpleRESTIonic.controllers', [])
         vm.redirectToInbox = redirectToInbox;
 
         //testing viewing page
+        vm.reroute = redirectToInbox;
         vm.isViewing = false;
         vm.cancelViewPost = cancelViewPost;
         vm.setViewPost = setViewPost;
