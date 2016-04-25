@@ -131,7 +131,7 @@ angular.module('SimpleRESTIonic.controllers', [])
         vm.sendReply = sendReply;
     })
 
-    .controller('DashboardCtrl', function (ItemsModel, $rootScope) {
+    .controller('DashboardCtrl', function (ItemsModel, $rootScope, Backand) {
         var vm = this;
 
         function getAll() {
@@ -190,7 +190,7 @@ angular.module('SimpleRESTIonic.controllers', [])
         }
 
         function initCreateForm() {
-            vm.newObject = {name: '', description: ''};
+            vm.newObject = {name: '', description: '', username: Backand.getUsername()};
         }
 
         function setEdited(object) {

@@ -72,7 +72,17 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.backtrack829017"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.backtrack829017"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.backtrack829017"
+        }
+    }
 }
