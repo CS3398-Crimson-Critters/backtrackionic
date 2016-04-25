@@ -44,18 +44,21 @@
   <div ng-if="vm.isViewingChat">
     <ion-view view-title="Abigail Barron">
       <ion-content class="padding">
-        <p class="button button-balanced" ng-click="vm.cancelViewChat()"><span class="ion-arrow-left-b"></span></p>
+        <p class="pure-button" ng-click="vm.cancelViewChat()"><span class="ion-arrow-left-b"></span></p>
         <br>
         <img ng-src="http://i.imgur.com/YOkeeOT.png" style="width: 64px; height: 64px">
         <div id="messages" ng-repeat="message in vm.chatThread">
           <p ng:class="{true:'right', false:'left'}[message.id % 2 == 0]"> {{message.message}}</p>
         </div>
+
+      </ion-content>
+
+      <div class="bar bar-footer">
         <label class="item item-input">
           <input id="response" name="response" ng-model="vm.response" type="text" placeholder="Reply...">
         </label>
-        <span class="button button-calm" ng-click="vm.sendReply()">Reply</span>
-
-      </ion-content>
+        <span class="pure-button" ng-click="vm.sendReply()">Reply</span>
+      </div>
     </ion-view>
   </div>
 

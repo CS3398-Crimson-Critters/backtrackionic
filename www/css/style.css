@@ -14,6 +14,16 @@
 	color:#90123f;
 }
 
+
+.lost-item {
+  margin-right: 15px;
+
+}
+
+#messages {
+  overflow-y: auto;
+}
+
 .edit-description {
   color: #666;
 }
